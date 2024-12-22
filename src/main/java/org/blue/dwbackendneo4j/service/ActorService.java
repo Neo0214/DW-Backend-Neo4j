@@ -26,7 +26,7 @@ public class ActorService {
         // 获取结束时间
         long endTime = System.currentTimeMillis();
         // 计算查询时间，单位换成秒
-        double totalTime = (endTime - startTime) / 1000.0;
+        double totalTime = (endTime - startTime);
         map.put("t_time", totalTime);
         return map;
     }
@@ -39,7 +39,7 @@ public class ActorService {
         // 获取结束时间
         long endTime = System.currentTimeMillis();
         // 计算查询时间，单位换成秒
-        double totalTime = (endTime - startTime) / 1000.0;
+        double totalTime = (endTime - startTime);
         map.put("t_time", totalTime);
         return map;
     }

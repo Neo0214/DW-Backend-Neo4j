@@ -37,4 +37,13 @@ public interface MovieRepository extends Neo4jRepository<Movie,Integer> {
             "RETURN COUNT(m) AS movieCount")
     Integer getMovieByYearMonthDay(int startYear, int endYear, int startMonth, int endMonth, int startDay, int endDay);
 
+    @Query("MATCH (m:Movie) " +
+            "WHERE m.title = $movieName " +
+            "RETURN COUNT(m) AS movieCount")
+    Integer getMovieByName(String movieName);
+
+    @Query("MATCH (m:Movie) " +
+            "WHERE m.type = $type " +
+            "RETURN COUNT(m) AS movieCount")
+    Integer getMovieByType(String type);
 }

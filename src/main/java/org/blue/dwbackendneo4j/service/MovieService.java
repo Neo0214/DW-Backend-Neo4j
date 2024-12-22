@@ -20,8 +20,14 @@ public class MovieService {
 
     public HashMap<String, Object> getMovieByName(String movieName){
         HashMap<String, Object> map = new HashMap<>();
-
-        map.put("t_time", 10);
+        // 获取当前时间
+        long startTime = System.currentTimeMillis();
+        int queryResult = movieRepository.getMovieByName(movieName);
+        // 获取结束时间
+        long endTime = System.currentTimeMillis();
+        // 计算查询时间，单位换成秒
+        double totalTime = (endTime - startTime);
+        map.put("t_time", totalTime);
         return map;
     }
 
@@ -71,6 +77,19 @@ public class MovieService {
         // 获取当前时间
         long startTime = System.currentTimeMillis();
         int queryResult = movieRepository.getMovieByYearMonthDay(y1, y2, m1, m2, d1, d2);
+        // 获取结束时间
+        long endTime = System.currentTimeMillis();
+        // 计算查询时间，单位换成秒
+        double totalTime = (endTime - startTime);
+        map.put("t_time", totalTime);
+        return map;
+    }
+
+    public HashMap<String, Object> getMovieByType(String type){
+        HashMap<String, Object> map = new HashMap<>();
+        // 获取当前时间
+        long startTime = System.currentTimeMillis();
+        int queryResult = movieRepository.getMovieByType(type);
         // 获取结束时间
         long endTime = System.currentTimeMillis();
         // 计算查询时间，单位换成秒

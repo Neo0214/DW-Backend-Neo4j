@@ -46,4 +46,9 @@ public class MovieController {
         return movieService.getMovieByYearMonthDay(y1, y2, m1, m2, d1, d2);
     }
 
+    @GetMapping("/bytype")
+    public HashMap<String, Object> getMovieByType(@RequestParam("name") String type){
+        return movieService.getMovieByType(type);
+    }
+
 }
